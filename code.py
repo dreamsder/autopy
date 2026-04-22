@@ -18,7 +18,7 @@ def normalizar_si_no(valor, por_defecto=False):
     if isinstance(valor, (int, float)):
         return valor != 0
     s = str(valor).strip().lower()
-    s = s.replace("í", "i")  # por si ponen "sí"
+    s = s.replace("í", "i")  # In case "sí" is used.
     return s in ("si", "s", "true", "1", "on", "yes")
 
 def alt_esc():
@@ -42,13 +42,25 @@ def click_rel(dx, dy, delay_ms=150):
     time.sleep(0.2)
 
 def scroll(direccion, ticks):
-    # En muchos sistemas: wheel negativo = arriba, positivo = abajo
-    ticks = int(ticks)
+    # In many systems: negative wheel = up, positive wheel = down.
+    ticks = abs(int(ticks))
     direccion = (direccion or "").strip().lower()
+    paso = 20
+    pausa = 0.03
     if direccion in ("arriba", "up"):
-        mouse.move(wheel=-abs(ticks))
+        paso = -paso
     else:
-        mouse.move(wheel=abs(ticks))
+        paso = abs(paso)
+
+    restante = ticks
+    while restante > 0:
+        movimiento = min(abs(paso), restante)
+        if paso < 0:
+            movimiento = -movimiento
+        mouse.move(wheel=movimiento)
+        restante -= abs(movimiento)
+        time.sleep(pausa)
+
     time.sleep(0.1)
 
 with open("macro.json", "r") as f:
@@ -63,18 +75,19 @@ if reiniciar_inicio:
     reiniciar_puntero()
 
 secciones = cfg.get("secciones", [])
-log(f"Secciones: {len(secciones)}")
+log(f"Sections: {len(secciones)}")
 
 for sec in secciones:
     desc = sec.get("descripcion", "(sin descripcion)")
     activo = normalizar_si_no(sec.get("activo"), True)
 
     if not activo:
-        log(f"Saltando (inactivo): {desc}")
+        log(f"Skipping (inactive): {desc}")
         continue
 
-    log(f"Ejecutando: {desc}")
+    log(f"Running: {desc}")
     pasos = sec.get("pasos", [])
+    delay_sec_ms = int(sec.get("delay_entre_pasos_ms", delay_entre_pasos_ms))
 
     for paso in pasos:
         tipo = (paso.get("tipo") or "").strip().lower()
@@ -86,20 +99,20 @@ for sec in secciones:
         elif tipo == "click":
             if reiniciar_antes_click:
                 reiniciar_puntero()
-            click_rel(paso.get("dx", 0), paso.get("dy", 0), delay_entre_pasos_ms)
+            click_rel(paso.get("dx", 0), paso.get("dy", 0), delay_sec_ms)
         elif tipo == "clicks":
             lista = paso.get("lista", [])
             for c in lista:
                 if reiniciar_antes_click:
                     reiniciar_puntero()
-                click_rel(c.get("dx", 0), c.get("dy", 0), delay_entre_pasos_ms)
+                click_rel(c.get("dx", 0), c.get("dy", 0), delay_sec_ms)
         elif tipo == "scroll":
             scroll(paso.get("direccion", "arriba"), paso.get("ticks", 40))
         else:
-            log(f"Paso desconocido: {tipo} (se ignora)")
+            log(f"Unknown step: {tipo} (ignored)")
 
-        time.sleep(delay_entre_pasos_ms / 1000)
+        time.sleep(delay_sec_ms / 1000)
 
-log("Macro finalizado.")
+log("Macro finished.")
 while True:
     time.sleep(1)

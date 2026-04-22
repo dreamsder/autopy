@@ -67,6 +67,25 @@ La lógica de automatización está separada en dos partes:
 
 Esto permite cambiar el comportamiento del sistema sin tocar el código principal, simplemente editando el archivo de configuración.
 
+## 🚗 Vehículo objetivo
+
+Esta implementación fue probada en:
+
+- **Vehículo:** Ora 03 GT
+- **Sistema multimedia:** basado en Android
+
+## 🔧 Personalizaciones
+
+Este repositorio incluye macros específicas para este vehículo, incluyendo:
+
+- activación de e-pedal
+- modo eco+ (opcional)
+- configuración de asistencia de carril
+- **masaje del asiento del conductor (modo bajo únicamente)**
+
+> ⚠️ Nota: Solo se implementó y calibró el masaje del conductor en modo "bajo".
+No incluye el asiento del pasajero ni otros niveles.
+
 ---
 
 ## 2. Objetivo del proyecto
@@ -642,6 +661,25 @@ The automation logic is split into two parts:
 
 This makes it possible to change the system behavior without touching the main code, simply by editing the configuration file.
 
+## 🚗 Target Vehicle
+
+This implementation was tested on:
+
+- **Vehicle:** Ora 03 GT
+- **Infotainment system:** Android-based OEM system
+
+## 🔧 Customizations
+
+This repository includes custom macros specifically developed for this vehicle, including:
+
+- e-pedal activation
+- eco+ mode (optional)
+- lane assist configuration
+- **driver seat massage (low mode only)**
+
+> ⚠️ Note: Only the driver seat massage in **low** mode was implemented and calibrated.  
+> Passenger seat massage and other massage levels are not included yet.
+
 ---
 
 ## 2. Project goal
@@ -1191,12 +1229,4 @@ Some interesting future extensions could be:
 
 ## 19. License
 
-You can publish this project under the license you prefer.
-
-Common options:
-
-- **MIT** if you want maximum simplicity;
-- **Apache-2.0** if you want a more explicit license;
-- **GPL** if you want derivative work to remain under the same license.
-
-If you do not have a strong preference yet, **MIT** is usually a good choice for a project like this.
+MIT

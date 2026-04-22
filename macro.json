@@ -6,15 +6,15 @@
   },
   "secciones": [
     {
-      "descripcion": "Activar e-pedal",
-      "activo": "no",
+      "descripcion": "Enable e-pedal",
+      "activo": "si",
       "pasos": [
-        { "tipo": "esperar", "segundos": 60 },
+        { "tipo": "esperar", "segundos": 120 },
         { "tipo": "ir_a_home", "veces": 1 },        
         
-        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Entrar en segundo menú"},
+        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Open second menu"},
 
-        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Entrar a Configuración" },        
+        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Open Settings" },        
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
         { "tipo": "click", "dx": 150, "dy": 150 },
@@ -23,27 +23,19 @@
         { "tipo": "click", "dx": 150, "dy": 170 },        
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
-        { "tipo": "click", "dx": 440, "dy": 210 },
-        { "tipo": "click", "dx": 440, "dy": 210 },
-        {
-          "tipo": "clicks",
-          "lista": [
-            { "dx": 400, "dy": 210 },
-            { "dx": 450, "dy": 250 }
-          ]
-        }
+        { "tipo": "click", "dx": 440, "dy": 250, "nota": "Enable e-pedal" }
       ]
     },
     {
-      "descripcion": "Activar eco+",
-      "activo": "si",
+      "descripcion": "Enable eco+",
+      "activo": "no",
       "pasos": [
         { "tipo": "esperar", "segundos": 10 },
         { "tipo": "ir_a_home", "veces": 1 },        
         
-        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Entrar en segundo menú"},
+        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Open second menu"},
 
-        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Entrar a Configuración" },        
+        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Open Settings" },        
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
         { "tipo": "click", "dx": 150, "dy": 150 },
@@ -52,21 +44,20 @@
         { "tipo": "click", "dx": 150, "dy": 170 },        
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
-        { "tipo": "click", "dx": 440, "dy": 250 ,"nota": "Activa e-pedal"},
-        { "tipo": "click", "dx": 440, "dy": 210 ,"nota": "Activa eco+"},
+        { "tipo": "click", "dx": 440, "dy": 210 ,"nota": "Enable eco+"}
        
       ]
     },
     {
-      "descripcion": "Desactivar Mantenimiento de carril de emergencia",
-      "activo": "no",
+      "descripcion": "Disable emergency lane keeping",
+      "activo": "si",
       "pasos": [
-        { "tipo": "esperar", "segundos": 60 },
+        { "tipo": "esperar", "segundos": 5 },
         { "tipo": "ir_a_home", "veces": 1 },        
         
-        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Entrar en segundo menú"},
+        { "tipo": "click", "dx": 50, "dy": 150, "nota": "Open second menu"},
 
-        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Entrar a Configuración" },        
+        { "tipo": "click", "dx": 300, "dy": 280, "nota": "Open Settings" },        
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
         { "tipo": "click", "dx": 150, "dy": 150 },
@@ -75,21 +66,84 @@
         { "tipo": "click", "dx": 150, "dy": 250 },
         { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
 
-        { "tipo": "click", "dx": 300, "dy": 135 ,"nota": "clic en pestaña Sistema de asistencia de avance"},
-        { "tipo": "click", "dx": 565, "dy": 135 ,"nota": "clic en pestaña Asistencia de carril"},
-        { "tipo": "click", "dx": 560, "dy": 135 ,"nota": "clic en pestaña Asistencia de carril"},        
-        { "tipo": "click", "dx": 400, "dy": 210 ,"nota": "Clic en un lugar vacio"},
-        { "tipo": "scroll", "direccion": "abajo", "ticks": 800 },
-        { "tipo": "click", "dx": 440, "dy": 210 ,"nota": "Clic en Mantenimiento de carril de emergencia"}
+        { "tipo": "click", "dx": 300, "dy": 135 ,"nota": "Click Forward Assist System tab"},
+        { "tipo": "click", "dx": 565, "dy": 135 ,"nota": "Click Lane Assist tab"},
+        { "tipo": "click", "dx": 440, "dy": 265 ,"nota": "Click emergency lane keeping"}
       ]
     },
     {
-      "descripcion": "Vovler a android Auto - AppleCar Play",
+      "descripcion": "Enable driver massage low",
+      "activo": "si",
+      "pasos": [
+        { "tipo": "esperar", "segundos": 8 },
+        { "tipo": "ir_a_home", "veces": 1 },
+        { "tipo": "esperar", "segundos": 1 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Open climate" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 155, "dy": 245, "nota": "Open seats" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 310, "dy": 285, "nota": "Driver massage - Low" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Exit climate" }
+      ]
+    },
+        {
+      "descripcion": "Enable driver massage High",
+      "activo": "no",
+      "pasos": [
+        
+        { "tipo": "esperar", "segundos": 15 },
+        { "tipo": "ir_a_home", "veces": 1 },
+        { "tipo": "esperar", "segundos": 1 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Open climate" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 155, "dy": 245, "nota": "Open seats" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 400, "dy": 285, "nota": "Driver massage - High" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Exit climate" }
+      ]
+    },
+        {
+      "descripcion": "Enable passenger massage high",
+      "activo": "no",
+      "pasos": [
+        { "tipo": "esperar", "segundos": 8 },
+        { "tipo": "ir_a_home", "veces": 1 },
+        { "tipo": "esperar", "segundos": 1 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Open climate" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 155, "dy": 245, "nota": "Open seats" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 500, "dy": 285, "nota": "Passenger massage - High" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Exit climate" }
+      ]
+    },
+        {
+      "descripcion": "Enable passenger massage low",
+      "activo": "no",
+      "pasos": [
+        
+        { "tipo": "esperar", "segundos": 15 },
+        { "tipo": "ir_a_home", "veces": 1 },
+        { "tipo": "esperar", "segundos": 1 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Open climate" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 155, "dy": 245, "nota": "Open seats" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 560, "dy": 285, "nota": "Passenger massage - low" },
+        { "tipo": "esperar", "segundos": 2 },
+        { "tipo": "click", "dx": 50, "dy": 260, "nota": "Exit climate" }
+      ]
+    },
+    {
+      "descripcion": "Return to Android Auto - Apple CarPlay",
       "activo": "si",
       "pasos": [
         { "tipo": "esperar", "segundos": 1 },
         { "tipo": "ir_a_home", "veces": 1 },
-        { "tipo": "click", "dx": 50, "dy": 310, "nota": "Entrar a android auto o apple car play"},
+        { "tipo": "click", "dx": 50, "dy": 310, "nota": "Open Android Auto or Apple CarPlay"}
       ]
     }
   ]
